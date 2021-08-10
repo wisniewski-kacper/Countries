@@ -1,0 +1,61 @@
+<div class="mt-5 mat-elevation-z8 p-3">
+  <ng-container *ngIf="!(countryDetails$ | async)">
+    <mat-icon color="warn">warning</mat-icon>
+    Country not found
+  </ng-container>
+  <ng-container *ngIf="countryDetails$ | async as countryDetails">
+    <span class="h2 d-block">{{countryDetails.name}} Details</span>
+    <div class="d-flex justify-content-start mt-2">
+      <img class="national-flag" alt="National flag" [src]="countryDetails.flag"/>
+
+      <div class="d-flex flex-column justify-content-start pl-4">
+        <div class="d-inline-block w-100">
+          <span class="bolded d-inline">Capital:</span> {{countryDetails.capital}}
+        </div>
+
+        <div class="d-inline-block w-100">
+          <span class="bolded d-inline">Alpha code:</span> {{countryDetails.alpha2Code}}
+        </div>
+
+        <div class="d-inline-block w-100">
+          <span class="bolded d-inline">Region:</span> {{countryDetails.region}} ({{countryDetails.subregion}})
+        </div>
+
+        <div class="d-inline-block w-100">
+          <span class="bolded d-inline">Population:</span> {{countryDetails.population}}
+        </div>
+
+        <div class="d-inline-block w-100">
+          <span class="bolded d-inline">Area:</span> {{countryDetails.area}}
+        </div>
+
+        <div class="d-inline-block w-100">
+          <span class="bolded d-inline">Currencies:</span>
+          <ul class="country-details-list">
+            <li *ngFor="let currency of countryDetails.currencies">
+              {{currency.code}}: {{currency.name}} ({{currency.symbol}})
+            </li>
+          </ul>
+        </div>
+
+        <div class="d-inline-block w-100">
+          <span class="bolded d-inline">Languages:</span>
+          <ul class="country-details-list">
+            <li *ngFor="let language of countryDetails.languages">
+              {{language.name}} - {{language.nativeName}}
+            </li>
+          </ul>
+        </div>
+
+        <div class="d-inline-block w-100">
+          <span class="bolded d-inline">Alternative spellings:</span>
+          <ul class="country-details-list">
+            <li *ngFor="let spelling of countryDetails.altSpellings">
+              {{spelling}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

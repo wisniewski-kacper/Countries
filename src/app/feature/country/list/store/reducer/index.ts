@@ -1,2 +1,2 @@
-export {countryListReducer} from './contry-list.reducer';
+export {countryListReducer} from './country-list.reducer';
 
