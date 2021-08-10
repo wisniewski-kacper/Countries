@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {StoreModule} from '@ngrx/store';
 import {PageNavigationModule, PageStructureModule} from './page-structure';
 import {FeatureModule} from './feature';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FeatureModule} from './feature';
     BrowserAnimationsModule,
     FeatureModule,
     StoreModule.forRoot({}, {}),
-    PageNavigationModule
+    PageNavigationModule,
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]
