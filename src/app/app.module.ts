@@ -7,6 +7,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {StoreModule} from '@ngrx/store';
 import {PageNavigationModule, PageStructureModule} from './page-structure';
 import {FeatureModule} from './feature';
+import {EffectsModule} from '@ngrx/effects';
+import {
+  NavigationActionTiming,
+  routerReducer,
+  StoreRouterConnectingModule
+} from '@ngrx/router-store';
+import {CustomSerializer} from './common/custom-route-serializer';
+import {routerKey} from './common';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,10 +27,29 @@ import {FeatureModule} from './feature';
     AppRoutingModule,
     BrowserAnimationsModule,
     FeatureModule,
-    StoreModule.forRoot({}, {}),
-    PageNavigationModule
+    HttpClientModule,
+    StoreModule.forRoot(
+        {
+          router: routerReducer
+        },
+        {
+          runtimeChecks: {
+            strictStateImmutability: true,
+            strictActionImmutability: true,
+            strictStateSerializability: true,
+            strictActionSerializability: true,
+            strictActionWithinNgZone: true,
+            strictActionTypeUniqueness: true
+          }
+        }),
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomSerializer,
+      navigationActionTiming: NavigationActionTiming.PostActivation,
+      stateKey: routerKey
+    }),
+    PageNavigationModule,
+    EffectsModule.forRoot([]),
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
