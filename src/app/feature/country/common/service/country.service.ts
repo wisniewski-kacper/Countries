@@ -4,12 +4,11 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class CountryService {
-  private static readonly BASE_URL = 'https://restcountries.eu/rest/v2/'
+  private static readonly BASE_URL = 'https://restcountries.eu/rest/v2'
 
   constructor(private readonly httpClient: HttpClient) {}
 
   getContractList$(regionCode: string): Observable<object[]> {
-    // return this.httpClient.get<object[]>(`${CountryService.BASE_URL}/region/${regionCode}`);
-    return this.httpClient.get<object[]>(`${CountryService.BASE_URL}/region/europe`);
+    return this.httpClient.get<object[]>(`${CountryService.BASE_URL}/region/${regionCode}`);
   }
 }

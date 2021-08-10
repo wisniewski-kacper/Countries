@@ -1,8 +1,10 @@
-import {combineReducers, createReducer} from '@ngrx/store';
+import {combineReducers, createReducer, on} from '@ngrx/store';
 import {countryListInitStateConst, CountryListState} from '../state';
+import {CountryListApiAction} from '../action';
 
 const listReducer = createReducer(
-    countryListInitStateConst.countryList
+    countryListInitStateConst.countryList,
+    on(CountryListApiAction.getCountryListSuccess, (state, {countryList}) => (countryList))
 );
 
 export const countryListReducer = combineReducers<CountryListState>({
