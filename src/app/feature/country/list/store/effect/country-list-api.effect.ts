@@ -19,7 +19,7 @@ export class CountryListApiEffect {
       this.actions$.pipe(
           ofType(CountryListPageAction.getCountryList),
           switchMap(({regionCode}) =>
-              this.service.getContractList$(regionCode).pipe(
+              this.service.getCountryList$(regionCode).pipe(
                   map(countryList => CountryListApiAction.getCountryListSuccess({countryList})),
                   catchError((error: HttpErrorResponse) =>
                     of(CountryListApiAction.getCountryListFail({msg: error.message, status: error.status}))

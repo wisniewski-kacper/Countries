@@ -8,20 +8,19 @@ import {CountryListPageAction} from "../action";
 
 @Injectable()
 export class CountryListPageEffect {
-  constructor(private readonly actions$: Actions, private readonly store$: Store) {}
+  constructor(private readonly actions$: Actions, private readonly store$: Store) {
+  }
+
   onCountryListPageEffect$ = createEffect(() =>
-    this.actions$.pipe(
-        ofType(routerNavigatedAction),
-        concatLatestFrom(() => this.store$.select(RouterSelectors.selectRouteParam('regionCode'))),
-        filter(([{payload}, regionCode]) => {
-              return payload.routerState.url ===
-              `/${regionCode}`;
-            }
-        ),
-        map(([, regionCode]) => {
-          return regionCode;
-        }),
-        map(regionCode => CountryListPageAction.getCountryList({regionCode}))
-    )
+      this.actions$.pipe(
+          ofType(routerNavigatedAction),
+          concatLatestFrom(() => this.store$.select(RouterSelectors.selectRouteParam('regionCode'))),
+          filter(([{payload}, regionCode]) =>
+              payload.routerState.url ===
+              `/${regionCode}`
+          ),
+          map(([, regionCode]) => regionCode),
+          map(regionCode => CountryListPageAction.getCountryList({regionCode}))
+      )
   );
 }

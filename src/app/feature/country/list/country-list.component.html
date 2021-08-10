@@ -1,4 +1,4 @@
-<div class="mt-5 mat-elevation-z8 pt-3">
+<div class="mt-5 mat-elevation-z8 pt-3 pb-3">
   <span class="h2 ml-3">Country List</span>
   <div class="table-container mt-4">
     <table mat-table
@@ -22,7 +22,7 @@
       <ng-container matColumnDef="actions">
         <th *matHeaderCellDef mat-header-cell>Actions</th>
         <td *matCellDef="let row" mat-cell>
-            <a role="button">
+            <a role="button" [routerLink]="['/country/', row.name.toLowerCase()]">
               <mat-icon color="primary">search</mat-icon>
             </a>
         </td>
