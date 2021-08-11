@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Country} from '../../../../common';
-import {map} from "rxjs/operators";
+import {Country} from '@app/common';
 
 @Injectable()
 export class CountryService {
@@ -14,9 +13,7 @@ export class CountryService {
     return this.httpClient.get<object[]>(`${CountryService.BASE_URL}/region/${regionCode}`);
   }
 
-  getCountryDetails$(countryName: string): Observable<Country> {
-    return this.httpClient.get<object>(`${CountryService.BASE_URL}/name/${countryName}`).pipe(
-        map(response => (response as Array<Country>)[0])
-    );
+  getCountryDetails$(alpha2Code: string): Observable<Country> {
+    return this.httpClient.get<Country>(`${CountryService.BASE_URL}/alpha/${alpha2Code}`);
   }
 }

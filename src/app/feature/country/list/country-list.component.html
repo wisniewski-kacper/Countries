@@ -22,7 +22,7 @@
       <ng-container matColumnDef="actions">
         <th *matHeaderCellDef mat-header-cell>Actions</th>
         <td *matCellDef="let row" mat-cell>
-            <a role="button" [routerLink]="['/country/', row.name.toLowerCase()]">
+            <a role="button" [routerLink]="['/country/', row.alpha2Code]">
               <mat-icon color="primary">search</mat-icon>
             </a>
         </td>

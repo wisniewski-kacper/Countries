@@ -1,5 +1,5 @@
 import {Country} from '@app/common';
 
 export interface CountryDetailsState {
-  countryDetails: Country;
+  countryDetails: Country | null;
 }

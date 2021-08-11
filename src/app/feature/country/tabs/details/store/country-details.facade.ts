@@ -8,7 +8,7 @@ import {Country} from '@app/common';
 export class CountryDetailsFacade {
   constructor(private readonly store$: Store) {}
 
-  get countryDetails$(): Observable<Country> {
+  get countryDetails$(): Observable<Country | null> {
     return this.store$.select(CountryDetailsSelector.countryDetailsState);
   }
 }
