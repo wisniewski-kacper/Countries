@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Actions, concatLatestFrom, createEffect, ofType} from '@ngrx/effects';
 import {Store} from '@ngrx/store';
 import {routerNavigatedAction} from '@ngrx/router-store';
-import {RouterSelectors} from '../../../../../../common';
+import {RouterSelectors} from '@app/common';
 import {filter, map} from 'rxjs/operators';
 import {CountryDetailsPageAction} from '../action';
 

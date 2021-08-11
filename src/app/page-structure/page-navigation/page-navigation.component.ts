@@ -1,15 +1,16 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component, OnDestroy} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {map, shareReplay} from 'rxjs/operators';
-import {Regions} from '../../common';
+import {map, shareReplay, takeUntil} from 'rxjs/operators';
+import {AboutMeComponent, Regions} from '@app/common';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-page-navigation',
   templateUrl: './page-navigation.component.html',
   styleUrls: ['./page-navigation.component.scss']
 })
-export class PageNavigationComponent {
+export class PageNavigationComponent implements OnDestroy{
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
       map(result => result.matches),
       shareReplay()
@@ -43,5 +44,19 @@ export class PageNavigationComponent {
     }
   ];
 
-  constructor(private readonly breakpointObserver: BreakpointObserver) {}
+  private readonly destroying$ = new Subject<void>();
+
+  constructor(private readonly breakpointObserver: BreakpointObserver, private dialog: MatDialog) {
+  }
+
+  onOpenDialog(): void {
+    const dialogRef = this.dialog.open(AboutMeComponent);
+
+    dialogRef.afterClosed()
+      .pipe(takeUntil(this.destroying$))
+  }
+
+  ngOnDestroy(): void {
+    this.destroying$.next();
+  }
 }
