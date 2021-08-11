@@ -17,7 +17,7 @@ export class CountryListPageEffect {
           concatLatestFrom(() => this.store$.select(RouterSelectors.selectRouteParam('regionCode'))),
           filter(([{payload}, regionCode]) =>
               payload.routerState.url ===
-              `/${regionCode}`
+              `/region/${regionCode}`
           ),
           map(([, regionCode]) => regionCode),
           map(regionCode => CountryListPageAction.getCountryList({regionCode}))
