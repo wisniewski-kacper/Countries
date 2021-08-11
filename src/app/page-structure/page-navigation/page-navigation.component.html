@@ -24,7 +24,7 @@
     <mat-divider></mat-divider>
 
     <mat-nav-list>
-      <a mat-list-item *ngFor="let region of regions" [routerLink]="region.code">
+      <a mat-list-item *ngFor="let region of regions" [routerLink]="['/region/', region.code]">
         {{region.name}}
       </a>
       <a role="button" mat-list-item (click)="onOpenDialog()">About me</a>

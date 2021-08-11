@@ -2,7 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 
 const routes: Routes = [
-  {path: ':regionCode', loadChildren: () => import('./country/country.module').then(m => m.CountryModule)}
+  {path: 'region/:regionCode', loadChildren: () => import('./country/country.module').then(m => m.CountryModule)}
 ]
 
 @NgModule({
