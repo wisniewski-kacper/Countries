@@ -7,7 +7,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {RouterModule} from '@angular/router';
-import {MatButtonModule} from "@angular/material/button";
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [PageNavigationComponent],
@@ -19,7 +20,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatIconModule,
     MatDividerModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ],
   exports: [PageNavigationComponent]
 })

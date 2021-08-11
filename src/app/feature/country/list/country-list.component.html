@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<div class="mt-5 mat-elevation-z8 pt-3 pb-3">
+  <span class="h2 ml-3">Country List</span>
+  <div class="table-container mt-4">
+    <table mat-table
+           aria-label="Elements"
+           class="full-width-table"
+           [dataSource]="facade.countryList$">
+      <ng-container matColumnDef="flag">
+        <th *matHeaderCellDef mat-header-cell>Flag</th>
+        <td *matCellDef="let row" mat-cell>
+          <img [src]="row.flag" class="flag-image" [alt]="[row.name, 'flag']"/>
+        </td>
+      </ng-container>
 
-</body>
-</html>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell>Name</th>
+        <td *matCellDef="let row" mat-cell>
+          {{row.name}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef mat-header-cell>Actions</th>
+        <td *matCellDef="let row" mat-cell>
+            <a role="button" [routerLink]="['/country/', row.alpha2Code]">
+              <mat-icon color="primary">search</mat-icon>
+            </a>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns" mat-row class="bg-light"></tr>
+    </table>
+  </div>
+</div>
