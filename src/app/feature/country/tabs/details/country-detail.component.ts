@@ -8,7 +8,7 @@ import {Country} from '@app/common';
   styleUrls: ['./country-details.component.scss']
 })
 export class CountryDetailsComponent {
-  countryDetails$: Observable<Country>
+  countryDetails$: Observable<Country | null>
 
   constructor(readonly facade: CountryDetailsFacade) {
     this.countryDetails$ = facade.countryDetails$;

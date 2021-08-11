@@ -8,18 +8,19 @@ import {CountryDetailsPageAction} from '../action';
 
 @Injectable()
 export class CountryDetailsPageEffect {
-  constructor(private readonly store$: Store, private readonly actions$: Actions) {}
+  constructor(private readonly store$: Store, private readonly actions$: Actions) {
+  }
 
   onEnterDetailsPage$ = createEffect(() =>
-    this.actions$.pipe(
-        ofType(routerNavigatedAction),
-        concatLatestFrom(() => this.store$.select(RouterSelectors.selectRouteParam('countryName'))),
-        filter(([{payload}, countryName]) =>
-            payload.routerState.url ===
-            `/country/${countryName}`
-        ),
-        map(([, countryName]) => countryName),
-        map(countryName => CountryDetailsPageAction.getCountryDetails({countryName}))
-    )
+      this.actions$.pipe(
+          ofType(routerNavigatedAction),
+          concatLatestFrom(() => this.store$.select(RouterSelectors.selectRouteParam('alphaCode'))),
+          filter(([{payload}, alphaCode]) =>
+              payload.routerState.url ===
+              `/country/${alphaCode}`
+          ),
+          map(([, alphaCode]) => alphaCode),
+          map(alphaCode => CountryDetailsPageAction.getCountryDetails({alphaCode}))
+      )
   );
 }

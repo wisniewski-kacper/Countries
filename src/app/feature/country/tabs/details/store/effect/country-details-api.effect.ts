@@ -14,8 +14,8 @@ export class CountryDetailsApiEffect {
   onGetCountryDetails = createEffect(() =>
     this.actions$.pipe(
         ofType(CountryDetailsPageAction.getCountryDetails),
-        switchMap(({countryName}) =>
-          this.service.getCountryDetails$(countryName).pipe(
+        switchMap(({alphaCode}) =>
+          this.service.getCountryDetails$(alphaCode).pipe(
               map( countryDetails => CountryDetailsApiAction.getCountryDetailsSuccess({countryDetails})),
               catchError((error: HttpErrorResponse) =>
                 of(CountryDetailsApiAction.getCountryDetailsFail({msg: error.message, status: error.status}))

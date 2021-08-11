@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'country',
     children: [
       {
-        path: ':countryName',
+        path: ':alphaCode',
         component: CountryDetailsComponent
       }
     ]
