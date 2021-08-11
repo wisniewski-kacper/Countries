@@ -27,7 +27,7 @@
       <a mat-list-item *ngFor="let region of regions" [routerLink]="region.code">
         {{region.name}}
       </a>
-      <a mat-list-item routerLink="/about">About me</a>
+      <a role="button" mat-list-item (click)="onOpenDialog()">About me</a>
     </mat-nav-list>
   </mat-sidenav>
 

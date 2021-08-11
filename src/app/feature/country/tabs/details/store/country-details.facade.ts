@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {CountryDetailsSelector} from './selector';
-import {Country} from '../../../../../common';
+import {Country} from '@app/common';
 
 @Injectable()
 export class CountryDetailsFacade {

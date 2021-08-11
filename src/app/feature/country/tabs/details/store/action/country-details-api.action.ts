@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {ApiError, Country} from '../../../../../../common';
+import {ApiError, Country} from '@app/common';
 
 export const getCountryDetailsSuccess = createAction(
     '[Country][Details] Get country details from service success',

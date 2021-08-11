@@ -1,77 +1,41 @@
 {
-  "extends": "tslint:recommended",
-  "rulesDirectory": [
-    "codelyzer"
-  ],
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "rulesDirectory": ["codelyzer"],
   "rules": {
     "align": {
-      "options": [
-        "parameters",
-        "statements"
-      ]
+      "options": ["parameters", "statements"]
     },
-    "array-type": false,
     "arrow-return-shorthand": true,
     "curly": true,
     "deprecation": {
       "severity": "warning"
     },
     "eofline": true,
-    "import-blacklist": [
-      true,
-      "rxjs/Rx"
-    ],
+    "import-blacklist": [true, "rxjs/Rx"],
     "import-spacing": true,
     "indent": {
-      "options": [
-        "spaces"
-      ]
+      "options": ["spaces"]
     },
-    "max-classes-per-file": false,
-    "max-line-length": [
-      true,
-      140
-    ],
+    "max-classes-per-file": [true, 1],
+    "max-line-length": [true, 140],
     "member-ordering": [
       true,
       {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
+        "order": ["static-field", "instance-field", "static-method", "instance-method"]
       }
     ],
-    "no-console": [
-      true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
+    "no-any": true,
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
     "no-empty": false,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
+    "no-inferrable-types": [true, "ignore-params"],
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
-    "no-var-requires": false,
-    "object-literal-key-quotes": [
-      true,
-      "as-needed"
-    ],
-    "quotemark": [
-      true,
-      "single"
-    ],
+    "no-var-requires": true,
+    "object-literal-key-quotes": [true, "as-needed"],
+    "quotemark": [true, "single"],
     "semicolon": {
-      "options": [
-        "always"
-      ]
+      "options": ["always"]
     },
     "space-before-function-paren": {
       "options": {
@@ -82,10 +46,7 @@
         "named": "never"
       }
     },
-    "typedef": [
-      true,
-      "call-signature"
-    ],
+    "typedef": [true, "call-signature"],
     "typedef-whitespace": {
       "options": [
         {
@@ -105,21 +66,10 @@
       ]
     },
     "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-pascal-case"
-      ]
+      "options": ["ban-keywords", "check-format", "allow-pascal-case"]
     },
     "whitespace": {
-      "options": [
-        "check-branch",
-        "check-decl",
-        "check-operator",
-        "check-separator",
-        "check-type",
-        "check-typecast"
-      ]
+      "options": ["check-branch", "check-decl", "check-operator", "check-separator", "check-type", "check-typecast"]
     },
     "component-class-suffix": true,
     "contextual-lifecycle": true,
@@ -136,17 +86,44 @@
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
-    "directive-selector": [
-      true,
-      "attribute",
-      "app",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "app",
-      "kebab-case"
-    ]
+    "directive-selector": [true, "attribute", "app", "camelCase"],
+    "component-selector": [true, "element", "app", "kebab-case"],
+    "no-unbound-method": true,
+    "no-conditional-assignment": true,
+    "no-sparse-arrays": true,
+    "restrict-plus-operands": true,
+    "no-invalid-template-strings": true,
+    "no-boolean-literal-compare": true,
+    "cyclomatic-complexity": true,
+    "member-access": [true, "no-public"],
+    "no-empty-interface": true,
+    "no-for-in": true,
+    "no-magic-numbers": [true, -1, 0, 1, 100],
+    "no-namespace": true,
+    "no-parameter-reassignment": true,
+    "only-arrow-functions": true,
+    "prefer-for-of": true,
+    "no-shadowed-variable": true,
+    "no-unused-variable": [true, { "ignore-pattern": "^_" }],
+    "strict-boolean-expressions": false,
+    "static-this": true,
+    "strict-comparisons": true,
+    "unnecessary-constructor": true,
+    "use-default-type-parameter": true,
+    "use-isnan": true,
+    "max-file-line-count": [true, 200],
+    "no-duplicate-imports": true,
+    "prefer-const": true,
+    "prefer-readonly": true,
+    "array-type": [true, "array"],
+    "binary-expression-operand-order": true,
+    "encoding": true,
+    "file-name-casing": [true, "kebab-case"],
+    "increment-decrement": [true, "allow-post"],
+    "interface-over-type-literal": true,
+    "no-unnecessary-callback-wrapper": true,
+    "no-unnecessary-initializer": true,
+    "ordered-imports": true,
+    "return-undefined": true
   }
 }

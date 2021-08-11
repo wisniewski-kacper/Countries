@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {Store} from '@ngrx/store';
-import {CountryService} from '../../../../common';
+import {CountryService} from '@app/feature/country/common';
 import {CountryDetailsApiAction, CountryDetailsPageAction} from "../action";
 import {catchError, map, switchMap} from "rxjs/operators";
 import {HttpErrorResponse} from "@angular/common/http";

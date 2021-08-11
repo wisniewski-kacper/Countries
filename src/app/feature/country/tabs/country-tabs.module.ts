@@ -1,5 +1,5 @@
-import {NgModule} from "@angular/core";
-import {CountryDetailsModule} from "./details";
+import {NgModule} from '@angular/core';
+import {CountryDetailsModule} from './details';
 
 @NgModule({
   imports: [

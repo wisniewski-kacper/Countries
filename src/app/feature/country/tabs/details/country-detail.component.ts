@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {CountryDetailsFacade} from './store/country-details.facade';
 import {Observable} from 'rxjs';
-import {Country} from '../../../../common';
+import {Country} from '@app/common';
 
 @Component({
   templateUrl: './country-details.component.html',

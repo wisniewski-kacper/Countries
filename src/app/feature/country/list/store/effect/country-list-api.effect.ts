@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {Store} from "@ngrx/store";
-import {CountryService} from "../../../common";
-import {CountryListApiAction, CountryListPageAction} from "../action";
-import {catchError, map, switchMap} from "rxjs/operators";
-import {HttpErrorResponse} from "@angular/common/http";
-import {of} from "rxjs";
+import {Store} from '@ngrx/store';
+import {CountryService} from "@app/feature/country/common";
+import {CountryListApiAction, CountryListPageAction} from '../action';
+import {catchError, map, switchMap} from 'rxjs/operators';
+import {HttpErrorResponse} from '@angular/common/http';
+import {of} from 'rxjs';
 
 @Injectable()
 export class CountryListApiEffect {
